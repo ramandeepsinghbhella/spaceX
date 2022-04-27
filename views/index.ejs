@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="UTF-8">
+    <title>SpaceX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body bgcolor="#f2f2f2">
+
+
+    <h1 style="font-size:45px">SpaceX Launch Programs</h1>
+    <div class="coloumn">
+        <h3> Filters </h3>
+        <p style="text-align: center;">Launch Year</p>
+
+        <table>
+            <form method="post" action="/launch_year">
+                <% for (var i =2006; i <=2020;  i++ ) { %>
+                    <tr>
+                        <td>
+                            <button class="btn" name="year" type="submit" value="<%= i %>"><%= i %></button>
+                        </td>
+                    </tr> 
+                    <% } %>
+            </form>
+        </table>
+        <p style="text-align: center;">Successful Launch</p><br>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <form action="/successful_launch" method="post">
+                            <button>True</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <form action="/unsucessful_launch" method="post">
+                            <button>False</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <p style="text-align: center;">Successful Landing</p><br>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <form action="/successful_land" method="post">
+                            <button>True</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <form action="/unsucessful_land" method="post">
+                            <button>False</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div> 
+
+        <% for(var i in FullData) { %>
+            <div class="coloumn">
+            <img src="<%= FullData[i]["links"]["mission_patch_small"]%>">    
+            <p style="color: #585b7b; font-weight: bolder;">
+                <%= FullData[i]["mission_name"]  %> #<%-i+1%></p>
+            <p style="font-weight: bolder;">Mission ids</p>
+            <ul> {<%= FullData[i]["mission_id"] %>}</ul>
+            <p style="font-weight: bolder;">launch year:<%= FullData[i]["launch_year"] %></p>
+            <p style="font-weight: bolder;">Successful launch: <%= FullData[i]["launch_success"] %></p>
+            <p style="font-weight: bolder;">Successful landing: <%= FullData[i]["rocket"]["first_stage"]["cores"][0]["land_success"] %></p>
+            </div>
+            <% } %>
+    
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,50 @@
+div{
+    float: left;
+}
+
+tr{
+    float: left;
+    margin: 0% 10% 5% 10%;
+}
+
+.coloumn{
+    background-color: white;
+    width: 17%;
+    border-radius: 3%;
+    padding: 1% 0% 3% 1%;
+    margin: 0% 0% 2% 2%;
+}
+
+.active, .button:hover {
+    background-color: #79b901;
+    color: black;
+  }
+
+button{
+    width: 100%;
+    background-color: #c6e29d;
+    font-weight: bold;
+	border-color: #fff;
+	border-style: solid;
+    border-radius: 10%;
+}
+
+img {
+    width: 100%;
+    height: 30%;
+    object-fit: fill;
+  }
+
+@media screen and (max-width: 1024px) {
+    .coloumn{
+        width: 28%;
+        
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .coloumn{
+         width: 100%;
+    
+    }
+}
